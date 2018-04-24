@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+from collections import Counter
+import csv
+import json
+import pickle
+
 def main(filename):
     # read file into lines
     lines = open(" i_have_a_dream.txt").readlines()
@@ -20,10 +25,8 @@ def main(filename):
             word = word.strip(string.punctuation)
             all_words.append(word)
             # check if word is not empty
-            if word:
-                # append the word to "all_words" list
                 
-from collections import Counter
+
     # compute word count from all_words
     word_counter = Counter(all_words)
 
@@ -32,7 +35,7 @@ from collections import Counter
     # a,12345
     # I,23456
     # ...
-import csv
+
     with open('word_count.csv', 'w') as csv_file:
         # create a csv writer from a file object (or descriptor)
         writer = csv.writer(csv_file)
@@ -41,13 +44,7 @@ import csv
         # write all (word, count) pair into the csv writer
         writer.writerows(word_counter.most_common())
         
-import json
-json.dump(word_counter.most_common(), open('word_counter.json', 'w'))
+    json.dump(word_counter.most_common(), open('word_counter.json', 'w'))    
+    
+    pickle.dump(word_counter.most_common(), open('word_counter.json', 'w'))
 
-
-import pickle
-pickle.dump(word_counter.most_common(), open('word_counter.json', 'w'))
-        
-
-if __name__ == '__main__':
-    main("i_have_a_dream.txt")
