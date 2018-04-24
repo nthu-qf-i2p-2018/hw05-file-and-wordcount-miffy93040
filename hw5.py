@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-from collections import Counter
-import csv
-import json
-import pickle
-
 def main(filename):
     # read file into lines
     lines = open(" i_have_a_dream.txt").readlines()
@@ -28,14 +22,14 @@ def main(filename):
                 
 
     # compute word count from all_words
+    from collections import Counter
     word_counter = Counter(all_words)
-
     # dump to a csv file named "wordcount.csv":
     # word,count
     # a,12345
     # I,23456
     # ...
-
+    import csv
     with open('word_count.csv', 'w') as csv_file:
         # create a csv writer from a file object (or descriptor)
         writer = csv.writer(csv_file)
@@ -44,7 +38,8 @@ def main(filename):
         # write all (word, count) pair into the csv writer
         writer.writerows(word_counter.most_common())
         
-    json.dump(word_counter.most_common(), open('word_counter.json', 'w'))    
+    import json    
+    json.dump(word_counter.most_common(), open('word_counter.json', 'w')) 
     
+    import pickle
     pickle.dump(word_counter.most_common(), open('word_counter.json', 'w'))
-
