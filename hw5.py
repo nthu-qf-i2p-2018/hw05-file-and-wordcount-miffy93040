@@ -32,7 +32,7 @@ def main(filename):
     # I,23456
     # ...
     import csv
-    with open('word_count.csv', 'w', newline='') as csv_file:
+    with open('wordcount.csv', 'w', newline='') as csv_file:
         # create a csv writer from a file object (or descriptor)
         writer = csv.writer(csv_file)
         # write table head
@@ -41,7 +41,7 @@ def main(filename):
         writer.writerows(word_counter.most_common())
         
     import json    
-    json.dump(word_counter.most_common(), open('word_counter.json', 'w')) 
+    json.dump(word_counter.most_common(), open('wordcount.json', 'w')) 
     
     import pickle
-    pickle.dump(word_counter, open('word_counter.pkl', 'wb'))
+    pickle.dump(word_counter, open('wordcount.pkl', 'wb'))
