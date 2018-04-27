@@ -46,4 +46,4 @@ def main(filename):
     import pickle
     pickle.dump(word_counter, open('wordcount.pkl', 'wb'))
 if __name__ == '__main__':
-    main(filename)
+    main('i_have_a_dream.txt')
