@@ -45,5 +45,5 @@ def main(filename):
     
     import pickle
     pickle.dump(word_counter, open('wordcount.pkl', 'wb'))
-if filename == 'main':
+if __name__ == '__main__':
     main(filename)
