@@ -18,8 +18,9 @@ def main(filename):
             # then, remove (strip) unwanted punctuations from every word
             # "dream." => "dream"
             word = word.strip(string.punctuation)
-            all_words.append(word)
-            # check if word is not empty
+            if word != "":
+                all_words.append(word)
+                # check if word is not empty
                 
 
     # compute word count from all_words
