@@ -1,6 +1,7 @@
+import string
 def main(filename):
     # read file into lines
-    lines = open(" i_have_a_dream.txt").readlines()
+    lines = open(filename).readlines()
 
     # declare a word list
     all_words = []
@@ -30,7 +31,7 @@ def main(filename):
     # I,23456
     # ...
     import csv
-    with open('word_count.csv', 'w') as csv_file:
+    with open('word_count.csv', 'w', newline='') as csv_file:
         # create a csv writer from a file object (or descriptor)
         writer = csv.writer(csv_file)
         # write table head
@@ -42,4 +43,4 @@ def main(filename):
     json.dump(word_counter.most_common(), open('word_counter.json', 'w')) 
     
     import pickle
-    pickle.dump(word_counter.most_common(), open('word_counter.json', 'w'))
+    pickle.dump(word_counter.most_common(), open('word_counter.pkl', 'wb'))
